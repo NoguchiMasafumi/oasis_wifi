@@ -1,1 +1,39 @@
-WIFI:S:sss111222;T:WPA;R:1;P:496Jkijgf;;
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wi-Fi設定QRコード</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+        #qrcode {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>以下のテキストを元にWi-Fi設定QRコードを生成します:</p>
+    <pre>WIFI:S:sss111222;T:WPA;R:1;P:496Jkijgf;;</pre>
+
+    <div id="qrcode"></div>
+
+    <script>
+        const wifiConfig = "WIFI:S:sss111222;T:WPA;R:1;P:496Jkijgf;;";
+        const qrcodeContainer = document.getElementById("qrcode");
+
+        // QRコードを生成
+        const qrcode = qrcodeGenerator({
+            text: wifiConfig,
+            typeNumber: 0,
+            errorCorrectionLevel: 'L',
+            size: 256
+        });
+
+        // div#qrcode の内容をクリア
+        qrcodeContainer.innerHTML = '';
+
+        // QRコードを描画
+        qrcodeContainer.appendChild(qrcode.createImgTag());
+    </script>
+
+</body>
+</html>
